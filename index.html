@@ -203,11 +203,46 @@
   .lb img{max-width:100%;max-height:100%;width:auto;object-fit:contain;box-shadow:0 30px 80px -30px #000}
   .lb .close{position:absolute;top:14px;right:16px;background:none;border:1px solid #6a6f78;color:#EDEBE6;font-family:var(--mono);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;padding:8px 13px;cursor:pointer}
   .lb .close:hover{background:#EDEBE6;color:#15171B}
+
+  .pubs .doi{display:inline-block;font-family:var(--mono);font-size:.68rem;letter-spacing:.02em;color:var(--ink-3);text-decoration:none;border-bottom:1px solid var(--rule-2);margin-top:5px;word-break:break-all}
+  .pubs .doi:hover{color:var(--cyan);border-bottom-color:var(--cyan)}
+
+  .skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:12px 18px;text-decoration:none}
+  .skip:focus{left:8px;top:8px}
+  .shot:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+  .printurl{display:none}
+
+  @media print{
+    :root,:root[data-theme="dark"]{--ink:#000;--ink-2:#1a1a1a;--ink-3:#555;--paper:#fff;--paper-2:#fff;--rule:#c2c2c2;--rule-2:#9a9a9a;--shadow:none;--shadow-lift:none}
+    @page{margin:14mm}
+    html,body{background:#fff!important;color:#000!important;font-size:10.5pt}
+    nav,.progress,.lb,.skip,.btn,.cvhead{display:none!important}
+    .printurl{display:block;font-family:var(--mono);font-size:8pt;letter-spacing:.06em;color:#333;margin:10px 0 0}
+    .wrap{max-width:none;margin:0;padding-inline:0}
+    .masthead{padding-block:0 16pt}
+    section{padding-block:14pt;break-before:page}
+    #work{break-before:auto}
+    a{color:#000;text-decoration:none}
+    .pubs a[href^="http"]::after,.cmeta a[href^="http"]::after{content:" (" attr(href) ")";font-family:var(--mono);font-size:7.5pt;color:#555;word-break:break-all}
+    .pubs .doi{border:0}
+    .colourbar,.shot,.progress i{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .shot{box-shadow:none!important;transform:none!important;max-height:2.6in;width:auto;max-width:100%;margin-inline:auto}
+    .hero-grid{break-before:page;display:grid;grid-template-columns:1.85in 1fr;gap:16pt;align-items:start}
+    .portrait{max-width:1.85in}
+    .portrait img{max-height:2.3in;width:auto;box-shadow:none!important}
+    .facts{break-inside:avoid}
+    .lede{font-size:11pt}
+    figure,.entry,.course,.stat,.beat,blockquote,.pubs li,.identity-panel{break-inside:avoid;page-break-inside:avoid}
+    h1,h2,h3,h4,h5,.sectitle,.subhead{break-after:avoid;page-break-after:avoid}
+    .name{font-size:26pt}
+    footer{padding-block:12pt 0}
+  }
+
   [hidden]{display:none!important}
 </style>
-
 </head>
 <body>
+<a class="skip" href="#top">Skip to content</a>
 <div class="progress"><i id="bar"></i></div>
 
 <nav>
@@ -233,6 +268,7 @@
     <div style="background:var(--sw3)"></div>
     <div style="background:var(--sw4)"></div>
   </div>
+  <p class="printurl">www.johnsonkwor.com <span class="dot">·</span> johnsonkwor@gmail.com <span class="dot">·</span> 815-995-0522 <span class="dot">·</span> DeKalb, Illinois</p>
   <p class="hero-thesis">Design practice and teaching are the same job, done in two directions.</p>
 
   <div class="hero-grid">
@@ -648,8 +684,8 @@
 
     <div class="subhead"><h3>Peer-reviewed articles</h3><span class="line"></span></div>
     <ul class="pubs">
-      <li><span class="tag">2025</span>Coker, E. V., &amp; Wor, K. J. Bridging generations through art: Community, creativity, and wellbeing. <i>International Journal of Lifelong Learning in Art Education, 8,</i> 48–57.</li>
-      <li><span class="tag">2024</span>Leonard, N., &amp; Wor, K. J. Addressing algorithm materiality and bias through art: Exploring social media–augmented reality features. <i>Art Education, 77</i>(4), 20–26.</li>
+      <li><span class="tag">2025</span>Coker, E. V., &amp; Wor, K. J. Bridging generations through art: Community, creativity, and wellbeing. <i>International Journal of Lifelong Learning in Art Education, 8,</i> 48–57. <a class="doi" href="https://doi.org/10.25889/dmwa-0g48">doi.org/10.25889/dmwa-0g48</a></li>
+      <li><span class="tag">2024</span>Leonard, N., &amp; Wor, K. J. Addressing algorithm materiality and bias through art: Exploring social media–augmented reality features. <i>Art Education, 77</i>(4), 20–26. <a class="doi" href="https://doi.org/10.1080/00043125.2024.2330342">doi.org/10.1080/00043125.2024.2330342</a></li>
       <li><span class="tag">2017</span>Wor, J. K., &amp; Asafo-Adjei, R. Assessment of the factors that challenge the quality of billboard advertising in the Sekondi-Takoradi metropolis. <i>1st Takoradi Technical University Biennial Research Conference Proceedings.</i> ISSN 2637-3564.</li>
     </ul>
 
@@ -771,7 +807,7 @@
       </div>
       <dl class="cmeta">
         <dt>Email</dt><dd><a href="mailto:johnsonkwor@gmail.com">johnsonkwor@gmail.com</a></dd>
-        <dt>Telephone</dt><dd>815-995-0522</dd>
+        <dt>Telephone</dt><dd><a href="tel:+18159950522">815-995-0522</a></dd>
         <dt>Location</dt><dd>DeKalb, Illinois, United States</dd>
         <dt>ORCID</dt><dd><a href="https://orcid.org/0009-0001-7330-1483">0009-0001-7330-1483</a></dd>
         <dt>Memberships</dt><dd>National Art Education Association · Illinois Art Education Association · Pan Afrikan Design Institute · Design Institute of Ghana · Ghana Art Teachers Association</dd>
@@ -784,11 +820,11 @@
 
 <footer class="wrap">
   <p class="colophon">
-© 2026 Johnson Kwame Wor · Chicago, Illinois
+© 2026 Johnson Kwame Wor · DeKalb, Illinois · www.johnsonkwor.com
   </p>
 </footer>
 
-<div class="lb" id="lb" hidden>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged image" hidden>
   <button class="close" id="lbclose" type="button">Close ✕</button>
   <img id="lbimg" alt="">
 </div>
@@ -812,20 +848,46 @@
   },{rootMargin:'-45% 0px -50% 0px'});
   Object.keys(map).forEach(function(id){ io.observe(document.getElementById(id)); });
 
-  var lb=document.getElementById('lb'), lbimg=document.getElementById('lbimg');
+  var lb=document.getElementById('lb'), lbimg=document.getElementById('lbimg'),
+      lbclose=document.getElementById('lbclose'), lastFocus=null;
+
+  [].forEach.call(document.querySelectorAll('.shot'),function(im){
+    im.setAttribute('tabindex','0');
+    im.setAttribute('role','button');
+    im.setAttribute('aria-haspopup','dialog');
+    if(im.alt){ im.setAttribute('aria-label','View larger: '+im.alt); }
+  });
+
+  function openLb(t){
+    lastFocus=t;
+    lbimg.src=t.currentSrc||t.src; lbimg.alt=t.alt||'';
+    lb.hidden=false; document.body.style.overflow='hidden';
+    lbclose.focus();
+  }
+  function closeLb(){
+    if(lb.hidden) return;
+    lb.hidden=true; lbimg.src=''; document.body.style.overflow='';
+    if(lastFocus){ try{ lastFocus.focus(); }catch(err){} lastFocus=null; }
+  }
+
   document.addEventListener('click',function(e){
     var t=e.target;
-    if(t.classList && t.classList.contains('shot')){
-      lbimg.src=t.currentSrc||t.src; lbimg.alt=t.alt||''; lb.hidden=false; document.body.style.overflow='hidden';
-    } else if(lb.contains(t) && !lb.hidden){
-      lb.hidden=true; lbimg.src=''; document.body.style.overflow='';
-    }
+    if(t.classList && t.classList.contains('shot')){ openLb(t); }
+    else if(lb.contains(t) && !lb.hidden){ closeLb(); }
   });
-  addEventListener('keydown',function(e){
-    if(e.key==='Escape' && !lb.hidden){ lb.hidden=true; lbimg.src=''; document.body.style.overflow=''; }
+
+  document.addEventListener('keydown',function(e){
+    var t=e.target;
+    if(!lb.hidden){
+      if(e.key==='Escape'){ e.preventDefault(); closeLb(); return; }
+      if(e.key==='Tab'){ e.preventDefault(); lbclose.focus(); return; }
+      return;
+    }
+    if(t && t.classList && t.classList.contains('shot') && (e.key==='Enter' || e.key===' ' || e.key==='Spacebar')){
+      e.preventDefault(); openLb(t);
+    }
   });
 })();
 </script>
-
 </body>
 </html>
